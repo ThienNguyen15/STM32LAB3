@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "input_processing.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -98,9 +97,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-      //you only need to add the fsm function here
-      fsm_for_input_processing();
 
     /* USER CODE BEGIN 3 */
   }
