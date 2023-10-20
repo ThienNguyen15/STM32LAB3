@@ -25,7 +25,7 @@ void getKeyInput(){
   KeyReg2 = KeyReg1;
   KeyReg1 = KeyReg0;
   //Add your button here
-  KeyReg0 = HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin);
+  KeyReg0 = HAL_GPIO_ReadPin(BUTTON_1_GPIO_Port, BUTTON_1_Pin);
 
   if ((KeyReg1 == KeyReg0) && (KeyReg1 == KeyReg2)){
     if (KeyReg2 != KeyReg3){
