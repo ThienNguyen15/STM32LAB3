@@ -95,10 +95,51 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int seg_index = 0;
+
+  setTimer(0, RED);
+  setTimer(1, GREEN);
+  setTimer(2, SEG_Switch);
+  setTimer(3, LED_Blink);
   while (1)
   {
     /* USER CODE END WHILE */
 	  fsm_mode();
+
+		if (IsTimerUp(2))
+		{
+			// Turn off all 7seg LEDs
+			HAL_GPIO_WritePin(GPIOA, 0xF00, SEG_OFF);
+
+			if (seg_index >= 4) seg_index = 0;
+
+			switch (seg_index) {
+				case 0:
+					// Choose 1st 7seg to display
+					HAL_GPIO_WritePin(en0_GPIO_Port, en0_Pin, SEG_ON);
+					break;
+				case 1:
+					// Choose 2nd 7seg to display
+					HAL_GPIO_WritePin(en1_GPIO_Port, en1_Pin, SEG_ON);
+					break;
+				case 2:
+					// Choose 3rd 7seg to display
+					HAL_GPIO_WritePin(en2_GPIO_Port, en2_Pin, SEG_ON);
+					break;
+				case 3:
+					// Choose 4th 7seg to display
+					HAL_GPIO_WritePin(en3_GPIO_Port, en3_Pin, SEG_ON);
+					break;
+				default:
+					break;
+			}
+
+			// Display the 7seg LED
+			update7SEG(seg_index++);
+
+			// Set timer for switching
+			setTimer(2, SEG_Switch);
+		}
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -203,8 +244,8 @@ static void MX_GPIO_Init(void)
                           |en2_Pin|en3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, f_Pin|e_Pin|d_Pin|c_Pin
-                          |b_Pin|a_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, g_Pin|f_Pin|e_Pin|d_Pin
+                          |c_Pin|b_Pin|a_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : red1_Pin amber1_Pin green1_Pin red2_Pin
                            amber2_Pin green2_Pin en0_Pin en1_Pin
@@ -217,16 +258,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : g_Pin */
-  GPIO_InitStruct.Pin = g_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(g_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : f_Pin e_Pin d_Pin c_Pin
-                           b_Pin a_Pin */
-  GPIO_InitStruct.Pin = f_Pin|e_Pin|d_Pin|c_Pin
-                          |b_Pin|a_Pin;
+  /*Configure GPIO pins : g_Pin f_Pin e_Pin d_Pin
+                           c_Pin b_Pin a_Pin */
+  GPIO_InitStruct.Pin = g_Pin|f_Pin|e_Pin|d_Pin
+                          |c_Pin|b_Pin|a_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

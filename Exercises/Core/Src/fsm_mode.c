@@ -17,22 +17,24 @@ void fsm_mode()
 		case MODE_1:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_2;
-			HAL_GPIO_WritePin(red1_GPIO_Port, red1_Pin, SET);
+
+			LEDsDisplay();
+			updateBufferForMode1();
 			break;
 		case MODE_2:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_3;
-			HAL_GPIO_WritePin(red1_GPIO_Port, red1_Pin, RESET);
+			LEDsBlink();
 			break;
 		case MODE_3:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_4;
-			HAL_GPIO_WritePin(red1_GPIO_Port, red1_Pin, SET);
+			LEDsBlink();
 			break;
 		case MODE_4:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_1;
-			HAL_GPIO_WritePin(red1_GPIO_Port, red1_Pin, RESET);
+			LEDsBlink();
 			break;
 
 		default:

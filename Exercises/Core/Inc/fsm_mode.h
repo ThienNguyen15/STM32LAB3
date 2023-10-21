@@ -8,8 +8,8 @@
 #ifndef INC_FSM_MODE_H_
 #define INC_FSM_MODE_H_
 
-#include "global.h"
 #include "main.h"
+#include "global.h"
 
 void fsm_mode();
 

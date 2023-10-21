@@ -1,4 +1,4 @@
-Core/Src/button.o: ../Core/Src/button.c ../Core/Inc/button.h \
+Core/Src/7SEG_LEDs.o: ../Core/Src/7SEG_LEDs.c ../Core/Inc/7SEG_LEDs.h \
  ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -26,7 +26,7 @@ Core/Src/button.o: ../Core/Src/button.c ../Core/Inc/button.h \
  ../Core/Inc/global.h ../Core/Inc/software_timer.h ../Core/Inc/button.h \
  ../Core/Inc/fsm_mode.h ../Core/Inc/7SEG_LEDs.h ../Core/Inc/LEDs.h
 
-../Core/Inc/button.h:
+../Core/Inc/7SEG_LEDs.h:
 
 ../Core/Inc/main.h:
 

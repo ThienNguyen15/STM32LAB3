@@ -1,3 +1,5 @@
+"./Core/Src/7SEG_LEDs.o"
+"./Core/Src/LEDs.o"
 "./Core/Src/button.o"
 "./Core/Src/fsm_mode.o"
 "./Core/Src/global.o"
