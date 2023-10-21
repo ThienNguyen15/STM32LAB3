@@ -131,6 +131,20 @@ void LEDsBlink()
 		Blink_Status = !Blink_Status;
 		setTimer(3, LED_Blink);
 	}
-	HAL_GPIO_WritePin(GPIOA, 0xFC, Blink_Status);
+	switch(mode)
+	{
+		case MODE_2:
+			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin, Blink_Status);
+			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin | green1_Pin | green2_Pin, LED_OFF);
+			break;
+		case MODE_3:
+			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin, Blink_Status);
+			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | green1_Pin | green2_Pin, LED_OFF);
+			break;
+		case MODE_4:
+			HAL_GPIO_WritePin(GPIOA, green1_Pin | green2_Pin, Blink_Status);
+			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | amber1_Pin | amber2_Pin, LED_OFF);
+			break;
+	}
 }
 

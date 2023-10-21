@@ -16,5 +16,7 @@ int GREEN = 300;
 
 int seg_index = 0;
 
-int SEG_Switch = 25;
+int SEG_Switch = 10;
 int LED_Blink = 50;
+
+int count_val = 0;

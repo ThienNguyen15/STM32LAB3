@@ -104,37 +104,38 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  fsm_mode();
-		if (IsTimerUp(2))
-		{
-			// Turn off all 7seg LEDs
-			HAL_GPIO_WritePin(GPIOA, 0xF00, SEG_OFF);
-			switch (seg_index) {
-				case 0:
-					// Choose 1st 7seg to display
-					HAL_GPIO_WritePin(en0_GPIO_Port, en0_Pin, SEG_ON);
-					break;
-				case 1:
-					// Choose 2nd 7seg to display
-					HAL_GPIO_WritePin(en1_GPIO_Port, en1_Pin, SEG_ON);
-					break;
-				case 2:
-					// Choose 3rd 7seg to display
-					HAL_GPIO_WritePin(en2_GPIO_Port, en2_Pin, SEG_ON);
-					break;
-				case 3:
-					// Choose 4th 7seg to display
-					HAL_GPIO_WritePin(en3_GPIO_Port, en3_Pin, SEG_ON);
-					break;
-				default:
-					break;
-			}
+	  fsmIncVal();
+	  if (IsTimerUp(2))
+	  {
+		  // Turn off all 7seg LEDs
+		  HAL_GPIO_WritePin(GPIOA, 0xF00, SEG_OFF);
+		  switch (seg_index) {
+		  	  case 0:
+		  		  // Choose 1st 7seg to display
+		  		  HAL_GPIO_WritePin(en0_GPIO_Port, en0_Pin, SEG_ON);
+		  		  break;
+		  	  case 1:
+		  		  // Choose 2nd 7seg to display
+		  		  HAL_GPIO_WritePin(en1_GPIO_Port, en1_Pin, SEG_ON);
+		  		  break;
+		  	  case 2:
+		  		  // Choose 3rd 7seg to display
+		  		  HAL_GPIO_WritePin(en2_GPIO_Port, en2_Pin, SEG_ON);
+		  		  break;
+		  	  case 3:
+		  		  // Choose 4th 7seg to display
+		  		  HAL_GPIO_WritePin(en3_GPIO_Port, en3_Pin, SEG_ON);
+		  		  break;
+		  	  default:
+		  		  break;
+		  }
 
-			// Display the 7seg LED
-			update7SEG(seg_index++);
+		  // Display the 7seg LED
+		  update7SEG(seg_index++);
 
-			// Set timer for switching
-			setTimer(2, SEG_Switch);
-		}
+		  // Set timer for switching
+		  setTimer(2, SEG_Switch);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

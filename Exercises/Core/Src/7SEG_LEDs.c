@@ -49,8 +49,112 @@ void update7SEG(int index)
 void updateBufferForMode1() {
 	// Display countdown value of the horizontal road
 	led_buffer[0] = (CurrentCounter(0) / 1000) ;
-	led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
+	if(CurrentCounter(0) % 100 == 0)
+		led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
+	else
+		led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
 	// Display countdown value of the verticle road
 	led_buffer[2] = (CurrentCounter(1) / 1000) ;
-	led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
+	if(CurrentCounter(1) % 100 == 0)
+		led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
+	else
+		led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
+}
+
+void updateBufferForIncVal()
+{
+	led_buffer[2] = count_val / 10;
+	led_buffer[3] = count_val % 10;
+
+	led_buffer[0] = 0;
+	switch(mode)
+	{
+		case MODE_2:
+			led_buffer[1] = 2;
+			break;
+		case MODE_3:
+			led_buffer[1] = 3;
+			break;
+		case MODE_4:
+			led_buffer[1] = 4;
+			break;
+		default:
+			break;
+	}
+}
+
+void fsmIncVal()
+{
+	switch (mode)
+	{
+		case INC_RED:
+			LEDsBlink();
+			updateBufferForIncVal();
+
+			if (isButtonPressed(BUTTON_1))
+			{
+				mode = MODE_3;
+			}
+
+			if (isButtonPressed(BUTTON_3))
+			{
+				mode = MODE_2;
+				RED = count_val * 100;
+			}
+
+			if (isButtonPressed(BUTTON_2))
+			{
+				if (count_val > 99) count_val = 0;
+				count_val++;
+			}
+
+			break;
+
+		case INC_AMBER:
+			LEDsBlink();
+			updateBufferForIncVal();
+
+			if (isButtonPressed(BUTTON_1))
+			{
+				mode = MODE_4;
+			}
+
+			if (isButtonPressed(BUTTON_3))
+			{
+				mode = MODE_3;
+				AMBER = count_val * 100;
+			}
+
+			if (isButtonPressed(BUTTON_2))
+			{
+				if (count_val > 99) count_val = 0;
+				count_val++;
+			}
+			break;
+
+		case INC_GREEN:
+			LEDsBlink();
+			updateBufferForIncVal();
+
+			if (isButtonPressed(BUTTON_1))
+			{
+				mode = MODE_1;
+			}
+
+			if (isButtonPressed(BUTTON_3))
+			{
+				mode = MODE_4;
+				AMBER = count_val * 100;
+			}
+
+			if (isButtonPressed(BUTTON_2))
+			{
+				if (count_val > 99) count_val = 0;
+				count_val++;
+			}
+			break;
+
+		default:
+			break;
+	}
 }

@@ -13,5 +13,7 @@
 
 void update7SEG(int index);
 void updateBufferForMode1();
+void updateBufferForIncVal();
+void fsmIncVal();
 
 #endif /* INC_7SEG_LEDS_H_ */
