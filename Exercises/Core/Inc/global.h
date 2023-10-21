@@ -51,6 +51,8 @@ extern int RED;
 extern int AMBER;
 extern int GREEN;
 
+extern int seg_index;
+
 extern int SEG_Switch;
 extern int LED_Blink;
 

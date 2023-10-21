@@ -26,6 +26,7 @@ void fsm_Hori_LEDs()
 				Hori_Status = AUTO_GREEN;
 				setTimer(0, GREEN);
 			}
+
 			break;
 		case AUTO_AMBER:
 			if (IsTimerUp(0))
