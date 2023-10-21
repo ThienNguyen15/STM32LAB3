@@ -80,10 +80,10 @@ void Error_Handler(void);
 #define en0_GPIO_Port GPIOA
 #define en1_Pin GPIO_PIN_9
 #define en1_GPIO_Port GPIOA
-#define en3_Pin GPIO_PIN_10
+#define en2_Pin GPIO_PIN_10
+#define en2_GPIO_Port GPIOA
+#define en3_Pin GPIO_PIN_11
 #define en3_GPIO_Port GPIOA
-#define en3A11_Pin GPIO_PIN_11
-#define en3A11_GPIO_Port GPIOA
 #define BUTTON_1_Pin GPIO_PIN_12
 #define BUTTON_1_GPIO_Port GPIOA
 #define BUTTON_2_Pin GPIO_PIN_13
