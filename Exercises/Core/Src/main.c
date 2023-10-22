@@ -95,7 +95,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  // Turn off all 7SEG_LEDs
   HAL_GPIO_WritePin(GPIOA, 0xF00, SEG_OFF);
 
   setTimer(0, RED);
