@@ -19,20 +19,11 @@ void fsm_Hori_LEDs()
 			Hori_Status = AUTO_RED;
 			setTimer(0, RED);
 			break;
-
 		case AUTO_RED:
 			if (IsTimerUp(0))
 			{
 				Hori_Status = AUTO_GREEN;
 				setTimer(0, GREEN);
-			}
-
-			break;
-		case AUTO_AMBER:
-			if (IsTimerUp(0))
-			{
-				Hori_Status = AUTO_RED;
-				setTimer(0, RED);
 			}
 			break;
 		case AUTO_GREEN:
@@ -42,6 +33,14 @@ void fsm_Hori_LEDs()
 				setTimer(0, AMBER);
 			}
 			break;
+		case AUTO_AMBER:
+			if (IsTimerUp(0))
+			{
+				Hori_Status = AUTO_RED;
+				setTimer(0, RED);
+			}
+			break;
+
 		default:
 			break;
 	}
@@ -55,12 +54,11 @@ void fsm_Verti_LEDs()
 			Verti_Status = AUTO_GREEN;
 			setTimer(1, GREEN);
 			break;
-
-		case AUTO_RED:
+		case AUTO_GREEN:
 			if (IsTimerUp(1))
 			{
-				Verti_Status = AUTO_GREEN;
-				setTimer(1, GREEN);
+				Verti_Status = AUTO_AMBER;
+				setTimer(1, AMBER);
 			}
 			break;
 		case AUTO_AMBER:
@@ -70,11 +68,11 @@ void fsm_Verti_LEDs()
 				setTimer(1, RED);
 			}
 			break;
-		case AUTO_GREEN:
+		case AUTO_RED:
 			if (IsTimerUp(1))
 			{
-				Verti_Status = AUTO_AMBER;
-				setTimer(1, AMBER);
+				Verti_Status = AUTO_GREEN;
+				setTimer(1, GREEN);
 			}
 			break;
 		default:
