@@ -46,11 +46,13 @@ void update7SEG(int index)
 	if(seg_index >= 4) seg_index = 0;
 }
 
-void updateBufferForMode1() {
-	// Display countdown value of the horizontal road
-	led_buffer[0] = (CurrentCounter(0) / 1000) ;
-	led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
-	// Display countdown value of the verticle road
-	led_buffer[2] = (CurrentCounter(1) / 1000) ;
-	led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
+void updateBufferForMode1()
+{
+	int Hori_Road = (Current_Timer_Counter(0)) / 100;
+	int Verti_road = (Current_Timer_Counter(1)) / 100;
+
+	led_buffer[0] = Hori_Road / 10;
+	led_buffer[1] = (Hori_Road + 1) % 10;
+	led_buffer[2] = Verti_road / 10;
+	led_buffer[3] = (Verti_road + 1) % 10;
 }
