@@ -49,16 +49,27 @@ void update7SEG(int index)
 void updateBufferForMode1() {
 	// Display countdown value of the horizontal road
 	led_buffer[0] = (CurrentCounter(0) / 1000) ;
-	if(CurrentCounter(0) % 100 == 0)
-		led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
-	else
-		led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
+	led_buffer[1] = ((CurrentCounter(0) / 100) % 10);
+//	if(CurrentCounter(0) % 100 == 0)
+//	{
+//		led_buffer[1] = ((CurrentCounter(0) / 100) % 10);
+//	}
+//	else if(CurrentCounter(0) % 100 != 0)
+//	{
+//		led_buffer[1] = ((CurrentCounter(0) / 100) % 10) + 1;
+//	}
 	// Display countdown value of the verticle road
 	led_buffer[2] = (CurrentCounter(1) / 1000) ;
-	if(CurrentCounter(1) % 100 == 0)
-		led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
-	else
-		led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
+	led_buffer[3] = ((CurrentCounter(1) / 100) % 10);
+
+//	if(CurrentCounter(1) % 100 == 0)
+//	{
+//		led_buffer[3] = ((CurrentCounter(1) / 100) % 10);
+//	}
+//	else if(CurrentCounter(1) % 100 != 0)
+//	{
+//		led_buffer[3] = ((CurrentCounter(1) / 100) % 10) + 1;
+//	}
 }
 
 void updateBufferForIncVal()
@@ -107,53 +118,49 @@ void fsmIncVal()
 				if (count_val > 99) count_val = 0;
 				count_val++;
 			}
-
 			break;
-
 		case INC_AMBER:
-			LEDsBlink();
-			updateBufferForIncVal();
-
-			if (isButtonPressed(BUTTON_1))
-			{
-				mode = MODE_4;
-			}
-
-			if (isButtonPressed(BUTTON_3))
-			{
-				mode = MODE_3;
-				AMBER = count_val * 100;
-			}
-
-			if (isButtonPressed(BUTTON_2))
-			{
-				if (count_val > 99) count_val = 0;
-				count_val++;
-			}
-			break;
-
+//			LEDsBlink();
+//			updateBufferForIncVal();
+//
+//			if (isButtonPressed(BUTTON_1))
+//			{
+//				mode = MODE_4;
+//			}
+//
+//			if (isButtonPressed(BUTTON_3))
+//			{
+//				mode = MODE_3;
+//				AMBER = count_val * 100;
+//			}
+//
+//			if (isButtonPressed(BUTTON_2))
+//			{
+//				if (count_val > 99) count_val = 0;
+//				count_val++;
+//			}
+//			break;
 		case INC_GREEN:
-			LEDsBlink();
-			updateBufferForIncVal();
-
-			if (isButtonPressed(BUTTON_1))
-			{
-				mode = MODE_1;
-			}
-
-			if (isButtonPressed(BUTTON_3))
-			{
-				mode = MODE_4;
-				AMBER = count_val * 100;
-			}
-
-			if (isButtonPressed(BUTTON_2))
-			{
-				if (count_val > 99) count_val = 0;
-				count_val++;
-			}
-			break;
-
+//			LEDsBlink();
+//			updateBufferForIncVal();
+//
+//			if (isButtonPressed(BUTTON_1))
+//			{
+//				mode = MODE_1;
+//			}
+//
+//			if (isButtonPressed(BUTTON_3))
+//			{
+//				mode = MODE_4;
+//				AMBER = count_val * 100;
+//			}
+//
+//			if (isButtonPressed(BUTTON_2))
+//			{
+//				if (count_val > 99) count_val = 0;
+//				count_val++;
+//			}
+//			break;
 		default:
 			break;
 	}
