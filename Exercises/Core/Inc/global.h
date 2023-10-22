@@ -14,10 +14,10 @@
 
 #define NORMAL_STATE	GPIO_PIN_SET
 #define PRESSED_STATE 	GPIO_PIN_RESET
-#define BUTTONS		3
 #define BUTTON_1	0
 #define BUTTON_2	1
 #define BUTTON_3	2
+#define BUTTONS		3
 
 #define MODE_INIT	8
 #define MODE_1		9
