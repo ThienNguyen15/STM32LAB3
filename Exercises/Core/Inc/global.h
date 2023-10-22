@@ -44,7 +44,7 @@
 #define SEG_ON		GPIO_PIN_RESET
 #define SEG_OFF		GPIO_PIN_SET
 
-// global variables
+// Global Variables
 extern int mode;
 extern int counterKeyPress;
 
