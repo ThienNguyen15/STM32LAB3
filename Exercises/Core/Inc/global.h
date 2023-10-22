@@ -16,10 +16,13 @@
 
 #define NORMAL_STATE	GPIO_PIN_SET
 #define PRESSED_STATE 	GPIO_PIN_RESET
-#define BUTTONS		3
 #define BUTTON_1	0
 #define BUTTON_2	1
 #define BUTTON_3	2
+#define BUTTONS		3
+
+
+#define TIMER		4
 
 #define MODE_INIT	8
 #define MODE_1		9
@@ -30,8 +33,6 @@
 #define INC_RED		13
 #define INC_AMBER	14
 #define INC_GREEN	15
-
-#define TIMER		4
 
 #define LED_ON		GPIO_PIN_SET
 #define LED_OFF		GPIO_PIN_RESET

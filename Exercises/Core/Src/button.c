@@ -4,8 +4,10 @@ int button_flag[BUTTONS];
 GPIO_PinState KeyReg[BUTTONS][4];
 int TimeOutForKeyPress[BUTTONS];
 
-int isButtonPressed(int button){
-	if(button_flag[button] == 1){
+int isButtonPressed(int button)
+{
+	if(button_flag[button] == 1)
+	{
 		button_flag[button] = 0;
 		return 1;
 	}

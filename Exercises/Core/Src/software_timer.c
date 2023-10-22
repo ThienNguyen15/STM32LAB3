@@ -10,7 +10,7 @@
 int timer_counter[TIMER];
 int timer_flag[TIMER];
 
-int CurrentCounter(int timer)
+int Current_Timer_Counter(int timer)
 {
 	return timer_counter[timer];
 }
@@ -33,9 +33,7 @@ void timerRun()
 		{
 			timer_counter[timer]--;
 			if(timer_counter[timer] == 0)
-			{
 				timer_flag[timer] = 1;
-			}
 		}
 	}
 }

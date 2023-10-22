@@ -18,7 +18,6 @@ void display7SEG(int num)
 }
 
 const int MAX_LED = 4;
-int index_led = 0;
 int led_buffer[4] = {1, 2, 3, 4};
 void update7SEG(int index)
 {
@@ -48,13 +47,13 @@ void update7SEG(int index)
 
 void updateBufferForMode1()
 {
-	int Hori_Road = (CurrentCounter(0)) / 100;
-	int Verti_road = (CurrentCounter(1)) / 100;
+	int Hori_Road = (Current_Timer_Counter(0)) / 100;
+	int Verti_road = (Current_Timer_Counter(1)) / 100;
 
 	led_buffer[0] = Hori_Road / 10;
-	led_buffer[1] = (Hori_Road+1) % 10;
+	led_buffer[1] = (Hori_Road + 1) % 10;
 	led_buffer[2] = Verti_road / 10;
-	led_buffer[3] = (Verti_road+1) % 10;
+	led_buffer[3] = (Verti_road + 1) % 10;
 }
 
 void updateBufferForIncVal()
@@ -88,9 +87,7 @@ void fsmIncVal()
 			updateBufferForIncVal();
 
 			if (isButtonPressed(BUTTON_1))
-			{
 				mode = MODE_3;
-			}
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -104,14 +101,13 @@ void fsmIncVal()
 				count_val++;
 			}
 			break;
+
 		case INC_AMBER:
 			LEDsBlink();
 			updateBufferForIncVal();
 
 			if (isButtonPressed(BUTTON_1))
-			{
 				mode = MODE_4;
-			}
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -125,14 +121,13 @@ void fsmIncVal()
 				count_val++;
 			}
 			break;
+
 		case INC_GREEN:
 			LEDsBlink();
 			updateBufferForIncVal();
 
 			if (isButtonPressed(BUTTON_1))
-			{
 				mode = MODE_1;
-			}
 
 			if (isButtonPressed(BUTTON_3))
 			{
