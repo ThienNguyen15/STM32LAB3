@@ -21,7 +21,6 @@
 #define BUTTON_3	2
 #define BUTTONS		3
 
-
 #define TIMER		4
 
 #define MODE_INIT	8
