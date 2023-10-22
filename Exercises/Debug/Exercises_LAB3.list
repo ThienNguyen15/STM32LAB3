@@ -550,6 +550,7 @@ void fsmIncVal()
 			break;
  800046c:	bf00      	nop
 	}
+
 	if(RED >= RED_INIT)
  800046e:	4b4e      	ldr	r3, [pc, #312]	; (80005a8 <fsmIncVal+0x284>)
  8000470:	681a      	ldr	r2, [r3, #0]
@@ -835,9 +836,9 @@ void fsm_Hori_LEDs()
  8000684:	2000      	movs	r0, #0
  8000686:	f000 fc9d 	bl	8000fc4 <setTimer>
 			}
-
 			break;
  800068a:	e021      	b.n	80006d0 <fsm_Hori_LEDs+0x9c>
+
 		case AUTO_GREEN:
 			if (IsTimerUp(0))
  800068c:	2000      	movs	r0, #0
@@ -859,6 +860,7 @@ void fsm_Hori_LEDs()
 			}
 			break;
  80006aa:	e013      	b.n	80006d4 <fsm_Hori_LEDs+0xa0>
+
 		case AUTO_AMBER:
 			if (IsTimerUp(0))
  80006ac:	2000      	movs	r0, #0
@@ -880,6 +882,7 @@ void fsm_Hori_LEDs()
 			}
 			break;
  80006ca:	e005      	b.n	80006d8 <fsm_Hori_LEDs+0xa4>
+
 		default:
 			break;
  80006cc:	bf00      	nop
@@ -934,6 +937,7 @@ void fsm_Verti_LEDs()
  8000722:	f000 fc4f 	bl	8000fc4 <setTimer>
 			break;
  8000726:	e036      	b.n	8000796 <fsm_Verti_LEDs+0xa6>
+
 		case AUTO_GREEN:
 			if (IsTimerUp(1))
  8000728:	2001      	movs	r0, #1
@@ -955,6 +959,7 @@ void fsm_Verti_LEDs()
 			}
 			break;
  8000746:	e021      	b.n	800078c <fsm_Verti_LEDs+0x9c>
+
 		case AUTO_AMBER:
 			if (IsTimerUp(1))
  8000748:	2001      	movs	r0, #1
@@ -976,6 +981,7 @@ void fsm_Verti_LEDs()
 			}
 			break;
  8000766:	e013      	b.n	8000790 <fsm_Verti_LEDs+0xa0>
+
 		case AUTO_RED:
 			if (IsTimerUp(1))
  8000768:	2001      	movs	r0, #1
@@ -997,6 +1003,7 @@ void fsm_Verti_LEDs()
 			}
 			break;
  8000786:	e005      	b.n	8000794 <fsm_Verti_LEDs+0xa4>
+
 		default:
 			break;
  8000788:	bf00      	nop
@@ -1476,7 +1483,6 @@ void getKeyInput(){
  8000a94:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
  8000a98:	2b00      	cmp	r3, #0
  8000a9a:	d105      	bne.n	8000aa8 <getKeyInput+0x150>
-				{
 					KeyReg[button][3] = NORMAL_STATE;
  8000a9c:	4a08      	ldr	r2, [pc, #32]	; (8000ac0 <getKeyInput+0x168>)
  8000a9e:	687b      	ldr	r3, [r7, #4]
@@ -1491,7 +1497,6 @@ void getKeyInput(){
  8000aae:	687b      	ldr	r3, [r7, #4]
  8000ab0:	2b02      	cmp	r3, #2
  8000ab2:	f77f af57 	ble.w	8000964 <getKeyInput+0xc>
-				}
 			}
 		}
 	}

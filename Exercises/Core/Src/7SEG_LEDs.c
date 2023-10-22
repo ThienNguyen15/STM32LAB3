@@ -144,6 +144,7 @@ void fsmIncVal()
 		default:
 			break;
 	}
+
 	if(RED >= RED_INIT)
 	{
 		AMBER = AMBER * (RED / RED_INIT);

@@ -1,4 +1,4 @@
 LEDs.c:14:6:fsm_Hori_LEDs	8	static
-LEDs.c:50:6:fsm_Verti_LEDs	8	static
-LEDs.c:84:6:LEDsDisplay	8	static
-LEDs.c:126:6:LEDsBlink	8	static
+LEDs.c:52:6:fsm_Verti_LEDs	8	static
+LEDs.c:90:6:LEDsDisplay	8	static
+LEDs.c:132:6:LEDsBlink	8	static

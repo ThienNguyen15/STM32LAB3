@@ -49,9 +49,7 @@ void getKeyInput(){
 			{
 				TimeOutForKeyPress[button]--;
 				if (TimeOutForKeyPress[button] == 0)
-				{
 					KeyReg[button][3] = NORMAL_STATE;
-				}
 			}
 		}
 	}
