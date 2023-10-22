@@ -10,7 +10,7 @@
 int timer_counter[TIMER];
 int timer_flag[TIMER];
 
-int CurrentCounter(int timer)
+int Current_Timer_Counter(int timer)
 {
 	return timer_counter[timer];
 }
