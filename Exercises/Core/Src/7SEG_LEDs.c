@@ -141,26 +141,26 @@ void fsmIncVal()
 			}
 			break;
 		case INC_GREEN:
-//			LEDsBlink();
-//			updateBufferForIncVal();
-//
-//			if (isButtonPressed(BUTTON_1))
-//			{
-//				mode = MODE_1;
-//			}
-//
-//			if (isButtonPressed(BUTTON_3))
-//			{
-//				mode = MODE_4;
-//				AMBER = count_val * 100;
-//			}
-//
-//			if (isButtonPressed(BUTTON_2))
-//			{
-//				if (count_val > 99) count_val = 0;
-//				count_val++;
-//			}
-//			break;
+			LEDsBlink();
+			updateBufferForIncVal();
+
+			if (isButtonPressed(BUTTON_1))
+			{
+				mode = MODE_1;
+			}
+
+			if (isButtonPressed(BUTTON_3))
+			{
+				mode = MODE_4;
+				AMBER = count_val * 100;
+			}
+
+			if (isButtonPressed(BUTTON_2))
+			{
+				if (count_val > 99) count_val = 0;
+				count_val++;
+			}
+			break;
 		default:
 			break;
 	}
