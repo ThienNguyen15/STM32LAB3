@@ -164,4 +164,52 @@ void fsmIncVal()
 		default:
 			break;
 	}
+	if(RED >= RED_INIT)
+	{
+		AMBER = AMBER * (RED / RED_INIT);
+		GREEN = GREEN * (RED / RED_INIT);
+		RED_INIT = RED;
+		AMBER_INIT = AMBER;
+		GREEN_INIT = GREEN;
+	}
+	else if(AMBER >= AMBER_INIT)
+	{
+		RED = RED * (AMBER / AMBER_INIT);
+		GREEN = GREEN * (AMBER / AMBER_INIT);
+		RED_INIT = RED;
+		AMBER_INIT = AMBER;
+		GREEN_INIT = GREEN;
+	}
+	else if(GREEN >= GREEN_INIT)
+	{
+		RED = RED * (GREEN / GREEN_INIT);
+		AMBER = AMBER * (GREEN / GREEN_INIT);
+		RED_INIT = RED;
+		AMBER_INIT = AMBER;
+		GREEN_INIT = GREEN;
+	}
+	else if(RED < RED_INIT)
+	{
+		AMBER = (RED / 5) * 2;
+		GREEN = (RED / 5) * 3;
+		RED_INIT = RED;
+		AMBER_INIT = AMBER;
+		GREEN_INIT = GREEN;
+	}
+	else if(AMBER < AMBER_INIT)
+	{
+		RED = (AMBER / 2) * 5;
+		GREEN = (AMBER / 2) * 3;
+		RED_INIT = RED;
+		AMBER_INIT = AMBER;
+		GREEN_INIT = GREEN;
+	}
+	else if(GREEN < GREEN_INIT)
+	{
+		RED = (GREEN / 3) * 5;
+		AMBER = (GREEN / 3) * 2;
+		RED_INIT = RED;
+		AMBER_INIT = AMBER;
+		GREEN_INIT = GREEN;
+	}
 }

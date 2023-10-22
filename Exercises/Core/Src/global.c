@@ -14,6 +14,10 @@ int RED = 500;
 int AMBER = 200;
 int GREEN = 300;
 
+int RED_INIT = 500;
+int AMBER_INIT = 200;
+int GREEN_INIT = 300;
+
 int seg_index = 0;
 
 int SEG_Switch = 10;

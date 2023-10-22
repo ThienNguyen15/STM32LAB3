@@ -52,6 +52,10 @@ extern int RED;
 extern int AMBER;
 extern int GREEN;
 
+extern int RED_INIT;
+extern int AMBER_INIT;
+extern int GREEN_INIT;
+
 extern int seg_index;
 
 extern int SEG_Switch;
