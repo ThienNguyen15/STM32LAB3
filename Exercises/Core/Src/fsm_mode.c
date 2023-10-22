@@ -24,16 +24,19 @@ void fsm_mode()
 		case MODE_2:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_3;
+
 			LEDsBlink();
 			break;
 		case MODE_3:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_4;
+
 			LEDsBlink();
 			break;
 		case MODE_4:
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_1;
+			
 			LEDsBlink();
 			break;
 
