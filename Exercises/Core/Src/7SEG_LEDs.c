@@ -50,9 +50,9 @@ void updateBufferForMode1()
 	int Hori_Road = (Current_Timer_Counter(0)) / 100;
 	int Verti_road = (Current_Timer_Counter(1)) / 100;
 
-	led_buffer[0] = Hori_Road / 10;
+	led_buffer[0] = (Hori_Road + 1)/ 10;
 	led_buffer[1] = (Hori_Road + 1) % 10;
-	led_buffer[2] = Verti_road / 10;
+	led_buffer[2] = (Verti_road + 1) / 10;
 	led_buffer[3] = (Verti_road + 1) % 10;
 }
 
@@ -83,11 +83,11 @@ void fsmIncVal()
 	switch (mode)
 	{
 		case INC_RED:
-			LEDsBlink();
+//			LEDsBlink();
 			updateBufferForIncVal();
-
-			if (isButtonPressed(BUTTON_1))
-				mode = MODE_3;
+//
+//			if (isButtonPressed(BUTTON_1))
+//				mode = MODE_3;
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -103,11 +103,11 @@ void fsmIncVal()
 			break;
 
 		case INC_AMBER:
-			LEDsBlink();
+//			LEDsBlink();
 			updateBufferForIncVal();
 
-			if (isButtonPressed(BUTTON_1))
-				mode = MODE_4;
+//			if (isButtonPressed(BUTTON_1))
+//				mode = MODE_4;
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -123,11 +123,11 @@ void fsmIncVal()
 			break;
 
 		case INC_GREEN:
-			LEDsBlink();
+//			LEDsBlink();
 			updateBufferForIncVal();
 
-			if (isButtonPressed(BUTTON_1))
-				mode = MODE_1;
+//			if (isButtonPressed(BUTTON_1))
+//				mode = MODE_1;
 
 			if (isButtonPressed(BUTTON_3))
 			{
