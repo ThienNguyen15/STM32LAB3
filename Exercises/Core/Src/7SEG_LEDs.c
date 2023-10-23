@@ -83,11 +83,11 @@ void fsmIncVal()
 	switch (mode)
 	{
 		case INC_RED:
-//			LEDsBlink();
+			LEDsBlink();
 			updateBufferForIncVal();
-//
-//			if (isButtonPressed(BUTTON_1))
-//				mode = MODE_3;
+
+			if (isButtonPressed(BUTTON_1))
+				mode = MODE_3;
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -103,11 +103,11 @@ void fsmIncVal()
 			break;
 
 		case INC_AMBER:
-//			LEDsBlink();
+			LEDsBlink();
 			updateBufferForIncVal();
 
-//			if (isButtonPressed(BUTTON_1))
-//				mode = MODE_4;
+			if (isButtonPressed(BUTTON_1))
+				mode = MODE_4;
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -123,11 +123,11 @@ void fsmIncVal()
 			break;
 
 		case INC_GREEN:
-//			LEDsBlink();
+			LEDsBlink();
 			updateBufferForIncVal();
 
-//			if (isButtonPressed(BUTTON_1))
-//				mode = MODE_1;
+			if (isButtonPressed(BUTTON_1))
+				mode = MODE_1;
 
 			if (isButtonPressed(BUTTON_3))
 			{
@@ -145,17 +145,17 @@ void fsmIncVal()
 			break;
 	}
 
-	if(RED >= RED_INIT)
+	if(RED > RED_INIT)
 	{
 		AMBER = AMBER * (RED / RED_INIT);
 		GREEN = GREEN * (RED / RED_INIT);
 	}
-	else if(AMBER >= AMBER_INIT)
+	else if(AMBER > AMBER_INIT)
 	{
 		RED = RED * (AMBER / AMBER_INIT);
 		GREEN = GREEN * (AMBER / AMBER_INIT);
 	}
-	else if(GREEN >= GREEN_INIT)
+	else if(GREEN > GREEN_INIT)
 	{
 		RED = RED * (GREEN / GREEN_INIT);
 		AMBER = AMBER * (GREEN / GREEN_INIT);
