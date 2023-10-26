@@ -6,6 +6,7 @@
  */
 
 #include "fsm_mode.h"
+GPIO_PinState Blink_Status = LED_ON;
 
 void fsm_mode()
 {
@@ -27,7 +28,14 @@ void fsm_mode()
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_3;
 
-			LEDsBlink();
+			if (IsTimerUp(3))
+			{
+				Blink_Status = !Blink_Status;
+				setTimer(3, LED_Blink);
+			}
+
+			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin, Blink_Status);
+			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin | green1_Pin | green2_Pin, LED_OFF);
 
 			count_val = RED / 100;
 			updateBufferForIncVal();
@@ -43,7 +51,14 @@ void fsm_mode()
 			if (isButtonPressed(BUTTON_1))
 				mode = MODE_4;
 
-			LEDsBlink();
+			if (IsTimerUp(3))
+			{
+				Blink_Status = !Blink_Status;
+				setTimer(3, LED_Blink);
+			}
+
+			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin, Blink_Status);
+			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | green1_Pin | green2_Pin, LED_OFF);
 
 			count_val = AMBER / 100;
 			updateBufferForIncVal();
@@ -63,7 +78,14 @@ void fsm_mode()
 				setTimer(1, GREEN);
 			}
 
-			LEDsBlink();
+			if (IsTimerUp(3))
+			{
+				Blink_Status = !Blink_Status;
+				setTimer(3, LED_Blink);
+			}
+
+			HAL_GPIO_WritePin(GPIOA, green1_Pin | green2_Pin, Blink_Status);
+			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | amber1_Pin | amber2_Pin, LED_OFF);
 
 			count_val = GREEN / 100;
 			updateBufferForIncVal();

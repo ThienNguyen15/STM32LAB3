@@ -9,7 +9,7 @@
 
 int Hori_Status = AUTO_INIT;
 int Verti_Status = AUTO_INIT;
-GPIO_PinState Blink_Status = LED_ON;
+//GPIO_PinState Blink_Status = LED_ON;
 
 void fsm_Hori_LEDs()
 {
@@ -129,27 +129,27 @@ void LEDsDisplay()
 	}
 }
 
-void LEDsBlink()
-{
-	if (IsTimerUp(3))
-	{
-		Blink_Status = !Blink_Status;
-		setTimer(3, LED_Blink);
-	}
-	switch(mode)
-	{
-		case MODE_2:
-			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin, Blink_Status);
-			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin | green1_Pin | green2_Pin, LED_OFF);
-			break;
-		case MODE_3:
-			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin, Blink_Status);
-			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | green1_Pin | green2_Pin, LED_OFF);
-			break;
-		case MODE_4:
-			HAL_GPIO_WritePin(GPIOA, green1_Pin | green2_Pin, Blink_Status);
-			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | amber1_Pin | amber2_Pin, LED_OFF);
-			break;
-	}
-}
+//void LEDsBlink()
+//{
+//	if (IsTimerUp(3))
+//	{
+//		Blink_Status = !Blink_Status;
+//		setTimer(3, LED_Blink);
+//	}
+//	switch(mode)
+//	{
+//		case MODE_2:
+//			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin, Blink_Status);
+//			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin | green1_Pin | green2_Pin, LED_OFF);
+//			break;
+//		case MODE_3:
+//			HAL_GPIO_WritePin(GPIOA, amber1_Pin | amber2_Pin, Blink_Status);
+//			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | green1_Pin | green2_Pin, LED_OFF);
+//			break;
+//		case MODE_4:
+//			HAL_GPIO_WritePin(GPIOA, green1_Pin | green2_Pin, Blink_Status);
+//			HAL_GPIO_WritePin(GPIOA, red1_Pin | red2_Pin | amber1_Pin | amber2_Pin, LED_OFF);
+//			break;
+//	}
+//}
 

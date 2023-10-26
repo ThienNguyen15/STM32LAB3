@@ -83,7 +83,6 @@ void fsmIncVal()
 	switch (mode)
 	{
 		case INC_RED:
-			LEDsBlink();
 			updateBufferForIncVal();
 
 			if (isButtonPressed(BUTTON_1))
@@ -103,7 +102,6 @@ void fsmIncVal()
 			break;
 
 		case INC_AMBER:
-			LEDsBlink();
 			updateBufferForIncVal();
 
 			if (isButtonPressed(BUTTON_1))
@@ -123,7 +121,6 @@ void fsmIncVal()
 			break;
 
 		case INC_GREEN:
-			LEDsBlink();
 			updateBufferForIncVal();
 
 			if (isButtonPressed(BUTTON_1))
